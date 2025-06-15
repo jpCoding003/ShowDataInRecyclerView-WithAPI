@@ -6,13 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity2"
-    android:background="#C1DCFF">
+    android:background="#DAEFFD">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/apiRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
     <ProgressBar
         android:id="@+id/progressBar"

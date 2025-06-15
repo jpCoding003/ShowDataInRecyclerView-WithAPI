@@ -36,20 +36,25 @@ class MainActivity2 : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
             binding.apiRecyclerView.layoutManager = LinearLayoutManager(application)
             binding.apiRecyclerView.adapter = MyAdapter2(result!!)
-
         }
+
     }
 }
 
 private suspend fun getdata():ArrayList<User>? = withContext(Dispatchers.IO){
 
+    // Created Client for API OkHttp network operation
+    // Perform network operation here
     val client = okhttp3.OkHttpClient()
 
+    // A reguest Builder created to requst data(To Get Data From API) from the url OR API
     val request: Request = Request.Builder().url("https://jsonplaceholder.typicode.com/comments").build()
 
     var response = client.newCall(request).execute()
 
     if (response.isSuccessful){
+        // we use !! to tell compiler that the varaiable is
+        // non-nullable type, even if it's been declared as nullable
         val jsonResponse = response.body!!.string()
 
         jsonResponse.let {
@@ -69,6 +74,6 @@ private suspend fun getdata():ArrayList<User>? = withContext(Dispatchers.IO){
             return@withContext userlist
         }
     }
-    return@withContext null
+    return@withContext null  // Must in every project or files where this api is done
 
 }
