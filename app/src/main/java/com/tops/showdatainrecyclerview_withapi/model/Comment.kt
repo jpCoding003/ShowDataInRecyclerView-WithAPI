@@ -1,0 +1,16 @@
+package com.tops.showdatainrecyclerview_withapi.model
+
+import com.google.gson.annotations.SerializedName
+
+data class Comment(
+    @SerializedName("body")  // Not required if Using same name as objects in val...
+    val body: String,
+    @SerializedName("email")  // Not required if Using same name as objects in val...
+    val email: String,
+    @SerializedName("id")  // Not required if Using same name as objects in val...
+    val id: Int,
+    @SerializedName("name")  // Not required if Using same name as objects in val...
+    val name: String,
+    @SerializedName("postId")  // Not required if Using same name as objects in val...
+    val postId: Int
+)
